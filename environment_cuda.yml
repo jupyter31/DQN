@@ -1,0 +1,25 @@
+name: dqn_cuda
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  - ffmpeg=4.2.2
+  - moviepy=1.0.3
+  - notebook=6.5.4
+  - pip=23.0.1
+  - python=3.8.10
+  - pyyaml=6.0
+  - scipy=1.10.1
+  - tensorboard=2.10.0
+  - tk=8.6.12
+  - pip:
+    - ale-py==0.8.1
+    - autorom[accept-rom-license]==0.6.1
+    - cmake==3.26.3; sys_platform != "win32"
+    - gym[atari]==0.26.2
+    - matplotlib==3.7.1
+    - numpy==1.24.3
+    - pyglet==2.0.5
+    - torch==2.0.0+cu117
+    - wget==3.2; sys_platform != "win32"
