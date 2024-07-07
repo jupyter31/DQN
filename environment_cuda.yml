@@ -4,6 +4,9 @@ channels:
   - conda-forge
   - pytorch
 dependencies:
+  - gym
+  - gym-atari
+  - gym[accept-rom-license]
   - ffmpeg=4.2.2
   - moviepy=1.0.3
   - notebook=6.5.4

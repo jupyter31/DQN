@@ -35,7 +35,7 @@ hyper_params:
     learning_start: 200
 
 output:
-    output_path: &output_path "results/dqn_deepmind/"
+    output_path: &output_path "results/test_dqn/"
     model_output: !join [*output_path, "model.weights.pt"]
     log_path: !join [*output_path, "log.txt"]
     plot_output: !join [*output_path, "scores.png"]

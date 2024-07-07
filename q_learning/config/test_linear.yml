@@ -1,4 +1,4 @@
-model: "linear"
+model: "test_linear"
 
 env:
     env_name: "test_environment"
@@ -35,7 +35,7 @@ hyper_params:
     learning_start: 200
 
 output:
-    output_path: &output_path "results/linear/"
+    output_path: &output_path "results/test_linear/"
     model_output: !join [*output_path, "model.weights.pt"]
     log_path: !join [*output_path, "log.txt"]
     plot_output: !join [*output_path, "scores.png"]

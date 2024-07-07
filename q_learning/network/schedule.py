@@ -9,7 +9,7 @@ sys.path.append(parent_dir)
 
 class LinearSchedule(object):
     """
-    Sets linear schedule for exploration parameter epsilon.
+    Sets test_linear schedule for exploration parameter epsilon.
 
     Args:
         eps_begin (float): initial exploration
@@ -46,7 +46,7 @@ class LinearSchedule(object):
 
 class LinearExploration(LinearSchedule):
     """
-    Implements e-greedy exploration with linear decay.
+    Implements e-greedy exploration with test_linear decay.
 
     Args:
         env (object): gym environment

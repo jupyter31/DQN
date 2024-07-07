@@ -6,7 +6,7 @@ from .dqn_abstract import AbstractDQN
 
 class Linear(AbstractDQN):
     """
-    We represent Q function as linear approximation Q_\theta(s,a) = \thetaT*\delta(s,a)
+    We represent Q function as test_linear approximation Q_\theta(s,a) = \thetaT*\delta(s,a)
        where [\delta(s,a)]_{s‘,a‘} = 1 iff s‘ = s, a‘ = a.
     Implementation of a single fully connected layer with Pytorch to be utilized
     in the DQN algorithm.
@@ -21,7 +21,7 @@ class Linear(AbstractDQN):
         state_shape = list(self.env.observation_space.shape)
         img_height, img_width, n_channels = state_shape
         num_actions = self.env.action_space.n
-        # linear layer with num_actions as the output size
+        # test_linear layer with num_actions as the output size
         self.q_network = nn.Linear(
             img_height * img_width * n_channels * self.config["hyper_params"]["state_history"],
             num_actions)
@@ -114,6 +114,6 @@ class Linear(AbstractDQN):
 
     def add_optimizer(self):
         """
-        This function sets the optimizer for our linear network (optimize only q_network).
+        This function sets the optimizer for our test_linear network (optimize only q_network).
         """
         self.optimizer = torch.optim.Adam(self.q_network.parameters())
