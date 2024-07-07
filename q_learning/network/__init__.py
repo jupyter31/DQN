@@ -1,3 +1,3 @@
-from .dqn_linear_approximation import DQNLinear
-from .dqn_deepmind import DQNDeepMind
+from .linear import Linear
+from .dqn import DQN
 from .schedule import LinearExploration, LinearSchedule

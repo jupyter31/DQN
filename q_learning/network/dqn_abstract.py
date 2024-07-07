@@ -11,7 +11,7 @@ from torch.utils.tensorboard import SummaryWriter
 from q_learning.network.qn import QN
 
 
-class DQN(QN, ABC):
+class AbstractDQN(QN, ABC):
     """ Abstract class for Deep Q Network """
     def __init__(self, env, config, logger=None):
         self.q_network = None

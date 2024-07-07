@@ -1,9 +1,9 @@
 import torch
 import torch.nn as nn
-from .dqn_abstract import DQN
+from .dqn_abstract import AbstractDQN
 
 
-class DQNDeepMind(DQN):
+class DQN(AbstractDQN):
     """
     Implementation of DeepMind's Nature paper:
     https://storage.googleapis.com/deepmind-data/assets/papers/DeepMindNature14236Paper.pdf

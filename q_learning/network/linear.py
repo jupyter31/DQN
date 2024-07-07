@@ -1,10 +1,10 @@
 import torch
 import torch.nn as nn
 
-from .dqn_abstract import DQN
+from .dqn_abstract import AbstractDQN
 
 
-class DQNLinear(DQN):
+class Linear(AbstractDQN):
     """
     We represent Q function as linear approximation Q_\theta(s,a) = \thetaT*\delta(s,a)
        where [\delta(s,a)]_{s‘,a‘} = 1 iff s‘ = s, a‘ = a.

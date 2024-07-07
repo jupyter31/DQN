@@ -4,7 +4,7 @@ import gym
 from q_learning.utils import read_config
 from q_learning.preprocess import greyscale
 from q_learning.environment import PreproWrapper, MaxPoolSkipEnv, EnvTest
-from q_learning.network import DQNLinear, DQNDeepMind, LinearExploration, LinearSchedule
+from q_learning.network import Linear, DQN, LinearExploration, LinearSchedule
 
 """
 This script lets us run deep Q network or linear approximation according to a custom config file.
@@ -26,7 +26,7 @@ def run():
     parser.add_argument(
         "--config_filename",
         help="The name of the config file in the config/ directory to be used for model training.",
-        default="test_dqn_linear.yml",
+        default="test_linear.yml",
     )
 
     args = parser.parse_args()
@@ -54,7 +54,7 @@ def run():
             )
 
             # train model
-            model = DQNDeepMind(env, config)
+            model = DQN(env, config)
             model.run(exp_schedule, lr_schedule)
 
         elif config["model"] == "linear":
@@ -76,7 +76,7 @@ def run():
             )
 
             # train model
-            model = DQNLinear(env, config)
+            model = Linear(env, config)
             model.run(exp_schedule, lr_schedule)
 
         else:
@@ -115,11 +115,11 @@ def run():
             )
 
             if config["model"] == "dqn":
-                model = DQNDeepMind(env, config)
+                model = DQN(env, config)
                 model.run(exp_schedule, lr_schedule)
 
             elif config["model"] == "linear":
-                model = DQNLinear(env, config)
+                model = Linear(env, config)
                 model.run(exp_schedule, lr_schedule)
 
             else:

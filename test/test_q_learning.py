@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 
 from q_learning.environment import EnvTest
-from q_learning.network import DQNDeepMind, DQNLinear, LinearSchedule, LinearExploration
+from q_learning.network import DQN, Linear, LinearSchedule, LinearExploration
 from utils import read_config
 
 
@@ -34,11 +34,11 @@ class TestExploration(unittest.TestCase):
 class TestLinearDQN(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.linear_config = read_config('test_dqn_linear.yml')
+        self.linear_config = read_config('test_linear.yml')
 
     def test_config(self):
         env = EnvTest((5, 5, 1))
-        model = DQNLinear(env, self.linear_config)
+        model = Linear(env, self.linear_config)
         state_shape = list(env.observation_space.shape)
         img_height, img_width, n_channels = state_shape
         num_actions = env.action_space.n
@@ -71,7 +71,7 @@ class TestLinearDQN(unittest.TestCase):
 
     def test_loss(self):
         env = EnvTest((5, 5, 1))
-        model = DQNLinear(env, self.linear_config)
+        model = Linear(env, self.linear_config)
         state_shape = list(env.observation_space.shape)
         img_height, img_width, n_channels = state_shape
         num_actions = env.action_space.n
@@ -105,7 +105,7 @@ class TestLinearDQN(unittest.TestCase):
 
     def test_optimizer(self):
         env = EnvTest((5, 5, 1))
-        model = DQNLinear(env, self.linear_config)
+        model = Linear(env, self.linear_config)
         state_shape = list(env.observation_space.shape)
         img_height, img_width, n_channels = state_shape
         num_actions = env.action_space.n
@@ -139,18 +139,18 @@ class TestLinearDQN(unittest.TestCase):
         )
 
         # train model
-        model = DQNLinear(env, self.linear_config)
+        model = Linear(env, self.linear_config)
         model.run(exp_schedule, lr_schedule)
 
 
 class TestDeepMindDQN(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.dqn_deepmind_config = read_config('test_dqn_deepmind.yml')
+        self.dqn_deepmind_config = read_config('test_dqn.yml')
 
     def test_input_output_shapes(self):
         env = EnvTest((80, 80, 1))
-        model = DQNDeepMind(env, self.dqn_deepmind_config)
+        model = DQN(env, self.dqn_deepmind_config)
 
         state_shape = list(env.observation_space.shape)
         img_height, img_width, n_channels = state_shape
