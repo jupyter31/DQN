@@ -17,9 +17,9 @@ Suppose we represent the Q-function as:
 
 ![Q_theta(s, a) = theta^top delta(s, a)](https://latex.codecogs.com/png.latex?Q_\theta(s,a)=\theta^\top\delta(s,a)) (equation 1)
 
-where ![\theta \in \mathbb{R}^{|S||A|}](https://latex.codecogs.com/png.latex?\theta\in\mathbb{R}^{|S||A|) and ![\delta: S \times A \to \mathbb{R}^{|S||A|}](https://latex.codecogs.com/png.latex?\delta%3A%20S%20%5Ctimes%20A%20%5Cto%20%5Cmathbb%7BR%7D%5E%7B%7CS%7C%7CA%7C%7C%7D) \
+where ![\theta \in \mathbb{R}^{|S||A|}](img/theta.png) and ![\delta: S \times A \to \mathbb{R}^{|S||A|}](img/delta.svg) \
 with: 
-![delta(s, a)](https://latex.codecogs.com/png.latex?[\delta(s,a)]_{s',a'}=\begin{cases}1&\text{if}s'=s,a'=a\\0&\text{otherwise}\end{cases})
+![delta(s, a)](img/delta_element.png)
 
 #### Update Rule for ![\theta](https://latex.codecogs.com/png.latex?\theta)
 
@@ -37,7 +37,7 @@ Deep Q-Networks (DQNs) extend the Q-learning algorithm by using deep neural netw
 
 The key ideas behind DQNs include:
 1. **Function Approximation with Neural Networks** \
-![f](https://latex.codecogs.com/png.latex?Q(s,%20a;%20\theta))
+![f](img/q_of_s_a_theta.png)
 2. **Experience replay** \
 To stabilize training, DQNs use a replay buffer to store transitions 
 (s,a,r,s′) during gameplay. Mini-batches of experiences are randomly sampled from this buffer to break the correlation between consecutive samples and to smooth out learning updates.
