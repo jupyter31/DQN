@@ -40,12 +40,16 @@ The key ideas behind DQNs include:
 ![f](img/q_of_s_a_theta.png)
 2. **Experience replay** \
 To stabilize training, DQNs use a replay buffer to store transitions 
-(s,a,r,s′) during gameplay. Mini-batches of experiences are randomly sampled from this buffer to break the correlation between consecutive samples and to smooth out learning updates.
+(s,a,r,s′) during gameplay. Mini-batches of experiences are randomly sampled from this buffer to break the 
+correlation between consecutive samples and to smooth out learning updates.
+[implementation](https://github.com/katesolonko/DQN/blob/main/q_learning/replay_buffer.py)
 3. **Target Network** \
 To address the instability caused by the moving target problem (i.e., the target values for Q-learning constantly changing), DQNs use a separate target network to generate target Q-values. The target network's weights are updated less frequently than the main network, providing a stable target for learning.
  \
 [implementation](https://github.com/katesolonko/DQN/blob/main/q_learning/network/dqn.py)
 
+## Relevant Useful Resources
+- [Spinning Up in Deep RL](https://spinningup.openai.com/en/latest/user/introduction.html)
 ## Installation
 
 ### Prerequisites
